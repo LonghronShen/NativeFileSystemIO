@@ -1,0 +1,6 @@
+LIBRARY NativeFileSystemIO
+EXPORTS   
+	GetFileClusters @ 1
+	FileCopy @ 2
+	GetProgramBits @ 3
+	GetSystemBits @ 4

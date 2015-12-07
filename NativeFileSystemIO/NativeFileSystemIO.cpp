@@ -119,11 +119,9 @@ BOOL WINAPI FileCopy(PCHAR lpSrcName, PCHAR lpDstName)
 				for (r = 0; r < ClCount; r++, FileSize -= BlockSize)
 				{
 					Offset.QuadPart = ClusterSize * Clusters[r];
-					SetFilePointer(hDrive, Offset.LowPart,
-						&Offset.HighPart, FILE_BEGIN);
+					SetFilePointer(hDrive, Offset.LowPart, &Offset.HighPart, FILE_BEGIN);
 					ReadFile(hDrive, Buff, ClusterSize, &Bytes, NULL);
-					BlockSize = FileSize < ClusterSize ? FileSize :
-						ClusterSize;
+					BlockSize = FileSize < ClusterSize ? FileSize : ClusterSize;
 					WriteFile(hFile, Buff, BlockSize, &Bytes, NULL);
 				}
 				//free(Buff);
